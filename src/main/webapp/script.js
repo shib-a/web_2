@@ -1,6 +1,7 @@
 var x_val;
 var y_val;
 var r_val;
+var svg = document.getElementById(svg);
 const buttons = document.querySelectorAll('.ch_x');
 
 var isValidInput = 0;

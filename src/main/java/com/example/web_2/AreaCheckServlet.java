@@ -22,7 +22,8 @@ public class AreaCheckServlet extends HttpServlet {
         var x = Double.parseDouble(request.getParameter("x_data"));
         var y = Double.parseDouble(request.getParameter("y_data"));
         var r = Double.parseDouble(request.getParameter("r_data"));
-        var ans = formAnswer(x, y, r, validate(x,y,r));
+        var hit =  validate(x,y,r);
+        var ans = formAnswer(x, y, r, hit);
         request.setAttribute("json", ans);
         request.getRequestDispatcher("src/main/webapp/result.jsp").forward(request, response);
     }
