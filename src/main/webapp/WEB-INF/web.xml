@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE web-app>
+<web-app>
+    <servlet>
+        <servlet-name>ControllerServlet</servlet-name>
+        <servlet-class>com.example.web_2.ControllerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/controller</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AreaCheckServlet</servlet-name>
+        <servlet-class>com.example.web_2.AreaCheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AreaCheckServlet</servlet-name>
+        <url-pattern>/areaCheck</url-pattern>
+    </servlet-mapping>
+</web-app>
