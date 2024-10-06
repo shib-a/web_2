@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
-  <title>Title</title>
+  <title>web_2</title>
 </head>
 <body>
 <div class="base">
@@ -65,35 +65,41 @@
       <img src="img.png" id="image">
     </div>
   </div>
-  <svg xmlns="http://www.w3.org/2000/svg" id="svg">
-    <line x1="0" y1="150" x2="300" y2="150" stroke="#000720"></line>
-    <line x1="150" y1="0" x2="150" y2="300" stroke="#000720"></line>
-    <line x1="270" y1="148" x2="270" y2="152" stroke="#000720"></line>
-    <text x="265" y="140">R</text>
-    <line x1="210" y1="148" x2="210" y2="152" stroke="#000720"></line>
-    <text x="200" y="140">R/2</text>
-    <line x1="90" y1="148" x2="90" y2="152" stroke="#000720"></line>
-    <text x="75" y="140">-R/2</text>
-    <line x1="30" y1="148" x2="30" y2="152" stroke="#000720"></line>
-    <text x="20" y="140">-R</text>
-    <line x1="148" y1="30" x2="152" y2="30" stroke="#000720"></line>
-    <text x="156" y="35">R</text>
-    <line x1="148" y1="90" x2="152" y2="90" stroke="#000720"></line>
-    <text x="156" y="95">R/2</text>
-    <line x1="148" y1="210" x2="152" y2="210" stroke="#000720"></line>
-    <text x="156" y="215">-R/2</text>
-    <line x1="148" y1="270" x2="152" y2="270" stroke="#000720"></line>
-    <text x="156" y="275">-R</text>
+  <div id="svg_div">
+      <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="-150 -150 300 300" id="svg">
+        <g transform="scale(1, -1)">
+          <line x1="-150" y1 = "0" x2 = "150" y2="0" stroke="black" stroke-width="1"></line>
+          <line x1="0" y1 = "-150" x2 = "0" y2="150" stroke="black" stroke-width="1"></line>
+          <%--   horizontal -s   --%>
+          <line x1 ="70" y1="5" x2="70" y2="-5" stroke="black" stroke-width="1"></line>
+          <line x1 ="140" y1="5" x2="140" y2="-5" stroke="black" stroke-width="1"></line>
+          <line x1 ="-70" y1="5" x2="-70" y2="-5" stroke="black" stroke-width="1"></line>
+          <line x1 ="-140" y1="5" x2="-140" y2="-5" stroke="black" stroke-width="1"></line>
+          <%--   vertical -s   --%>
+          <line x1 ="5" y1="70" x2="-5" y2="70" stroke="black" stroke-width="1"></line>
+          <line x1 ="5" y1="140" x2="-5" y2="140" stroke="black" stroke-width="1"></line>
+          <line x1 ="5" y1="-70" x2="-5" y2="-70" stroke="black" stroke-width="1"></line>
+          <line x1 ="5" y1="-140" x2="-5" y2="-140" stroke="black" stroke-width="1"></line>
 
-    <polygon points="300,150 295,155 295, 145" fill="#000720" stroke="#000720"></polygon>
-    <polygon points="150,0 145,5 155,5" fill="#000720" stroke="#000720"></polygon>
+          <polygon points="0,0 0,140 -70,0" fill="blue" fill-opacity="0.4"></polygon>
+          <path d="M 0 -140 C 0 -140, -140 -140, -140 -0 L 0 0 L 0 -140 Z" fill="blue" fill-opacity="0.4"></path>
+        </g>
+        <%--   horizontal Rs   --%>
+        <text x="60" y="-8">R/2</text>
+        <text x="135" y="-8">R</text>
+        <text x="-85" y="-8">-R/2</text>
+        <text x="-145" y="-8">R</text>
+        <%--   vertical -s   --%>
+        <text x="7" y="-65">R/2</text>
+        <text x="7" y="-135">R</text>
+        <text x="7" y="65">-R/2</text>
+        <text x="7" y="135">-R</text>
 
-    <rect x="150" y="150" width="120" height="120" fill-opacity="0.4" stroke="navy" fill="blue"></rect>
-
-    <polygon points="150,150 90,150 150,90" fill-opacity="0.4" stroke="navy" fill="blue"></polygon>
-
-    <path d="M150 150 L 270 150 C 270 80 220 30 150 30 L Z" fill-opacity="0.4" stroke="navy" fill="blue"></path>
-  </svg>
+        <rect x="0" y="0" height="140" width="70" fill-opacity="0.4" fill="blue"></rect>
+<%--        <path d="M 0 140 A 70 70 0 0 1 -140 0" fill="blue" fill-opacity="0.4"></path>--%>
+<%--        <path d="M 0 140 C 0 140, 140 0, 140 140" fill="blue" fill-opacity="0.4"></path>--%>
+      </svg>
+  </div>
   <footer class="footer">
     <h5>shibeyshi® limited 2024. All rights reserved.</h5>
   </footer>

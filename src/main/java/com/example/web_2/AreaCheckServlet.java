@@ -3,29 +3,38 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
-
+@WebServlet("/areaCheck")
 public class AreaCheckServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){
+    public void doGet(HttpServletRequest request, HttpServletResponse response){
+        System.out.println("im in checker");
         try{
             handleRequest(request, response);
         }catch (ServletException | IOException e){}
     }
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //var params = request.getParameterMap();
-        var x = Double.parseDouble(request.getParameter("x_data"));
-        var y = Double.parseDouble(request.getParameter("y_data"));
-        var r = Double.parseDouble(request.getParameter("r_data"));
-        var hit =  validate(x,y,r);
-        var ans = formAnswer(x, y, r, hit);
-        request.setAttribute("json", ans);
-        request.getRequestDispatcher("src/main/webapp/result.jsp").forward(request, response);
+
+        try {
+            var x = Double.parseDouble(request.getParameter("x_data"));
+            var y = Double.parseDouble(request.getParameter("y_data"));
+            var r = Double.parseDouble(request.getParameter("r_data"));
+            var hit = validate(x, y, r);
+            var ans = formAnswer(x, y, r, hit);
+        } catch (Exception e){
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        };
+        String ans = null;
+        //request.setAttribute("json", ans);
+        request.getRequestDispatcher("./result.jsp").forward(request, response);
+//        response.sendRedirect("src/main/webapp/result.jsp");
     }
     public boolean validate(double x, double y, double r){return checkTriangle(x,y,r) || checkRectangle(x,y,r) || checkCircle(x,y,r);}
     public boolean checkTriangle(double x, double y, double r){

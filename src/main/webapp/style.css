@@ -72,10 +72,10 @@ body {
     cursor: pointer;
 }
 button.ch_x{
-    background-color:'#ACC8E5';
+    /*background-color:'#ACC8E5';*/
 }
 button.chosen{
-    background-color:'#ACC8E5';
+    /*background-color:'#ACC8E5';*/
 }
 #submit_button{
     margin-top: 10px;
@@ -122,4 +122,13 @@ tr, th, td{
     border: 1px solid black;
     padding: 5px;
     border-radius: 10px;
+}
+#svg_div{
+    align-items: center;
+    width: 300px;
+    height: 300px;
+}
+path:hover{cursor: pointer}
+#svg{
+    cursor: pointer;
 }
