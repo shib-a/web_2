@@ -7,16 +7,28 @@ public class PointModel {
     double x;
     double y;
     double r;
+    double raw_x;
+    double raw_y;
     boolean hit;
-    public PointModel(double x, double y, double r, boolean hit){
+    public PointModel(double x, double y, double r, boolean hit, double raw_x, double raw_y){
         this.r = r;
         this.x = x;
         this.y = y;
+        this.raw_x=raw_x;
+        this.raw_y = raw_y;
         this.hit = hit;
     }
 
     public double getR() {
         return r;
+    }
+
+    public double getRaw_x() {
+        return raw_x;
+    }
+
+    public double getRaw_y() {
+        return raw_y;
     }
 
     public double getY() {
@@ -30,11 +42,12 @@ public class PointModel {
         return hit;
     }
     public HashMap<String, Double> toDumbAssCoords(){
-        var svgX = (x*(140/r));
+        var svgX = (x*(140/r)+150);
         var svgY = (y+150)*(140/r);
         var hm = new HashMap<String, Double>();
         hm.put("x", svgX);
         hm.put("y",svgY);
+        System.out.println(hm.get("x")+" "+ hm.get("y"));
         return hm;
     }
 

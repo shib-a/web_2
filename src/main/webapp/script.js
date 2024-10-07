@@ -30,15 +30,10 @@ $(svg).click(async function (evt) {
         console.log("raw:", cursorpt.x, cursorpt.y, r_val)
         drawPoint(cursorpt.x, cursorpt.y)
         let tcords = toPlane(cursorpt.x, cursorpt.y, r_val);
-        let data = {"x_data": tcords.x, "y_data": tcords.y, "r_data": r_val};
+        let data = {"x_data": tcords.x, "y_data": tcords.y, "r_data": r_val, "raw_x": cursorpt.x, "raw_y": cursorpt.y};
         console.log(data.x_data, data.y_data);
         var url = "controller?" + new URLSearchParams(data).toString();
         var response = await fetch(url, {method: "get", redirect: "manual"});
-        var new_row = table.insertRow();
-        var xCell = new_row.insertCell(0);
-        var yCell = new_row.insertCell(1);
-        var rCell = new_row.insertCell(2);
-        var hitCell = new_row.insertCell(3);
         window.location.href=response.url;
         // $.get(response.url, function (){
         //     const table = $('#table_body_res');
