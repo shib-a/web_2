@@ -29,14 +29,15 @@ public class AreaCheckServlet extends HttpServlet {
             var hit = validate(x, y, r);
             var point = new PointModel(x,y,r,hit);
             PointList.getInstance().add(point);
-            request.getSession().setAttribute("pointList", PointList.getInstance());
+            PointList.getInstance().getPointList().forEach(System.out::println);
+            if(request.getSession().getAttribute("pointList")==null){
+                request.getSession().setAttribute("pointList", PointList.getInstance());
+            }
         } catch (Exception e){
             System.out.println(Arrays.toString(e.getStackTrace()));
             System.out.println(e.getMessage());
             System.out.println(e.getCause());
         };
-        String ans = null;
-        //request.setAttribute("json", ans);
         request.getRequestDispatcher("./result.jsp").forward(request, response);
 //        response.sendRedirect("src/main/webapp/result.jsp");
     }

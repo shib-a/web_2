@@ -1,5 +1,6 @@
 package com.example.web_2;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class PointModel {
@@ -27,6 +28,14 @@ public class PointModel {
     }
     public boolean getHit(){
         return hit;
+    }
+    public HashMap<String, Double> toDumbAssCoords(){
+        var svgX = (x*(140/r));
+        var svgY = (y+150)*(140/r);
+        var hm = new HashMap<String, Double>();
+        hm.put("x", svgX);
+        hm.put("y",svgY);
+        return hm;
     }
 
     @Override

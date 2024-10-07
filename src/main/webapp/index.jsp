@@ -66,12 +66,11 @@
           ArrayList<PointModel> list = pointList.getPointList();
           for (PointModel point : list) { %>
         <tr>
-          <td><%=point.getX()%></td>;
-          <td><%=point.getY()%></td>;
-          <td><%=point.getR()%></td>;
-          <td><%=point.getHit()%></td>;
+          <td><%=point.getX()%></td>
+          <td><%=point.getY()%></td>
+          <td><%=point.getR()%></td>
+          <td><%=point.getHit()%></td>
         </tr>
-        }
         <%}}%>
         </tbody>
       </table>
@@ -98,7 +97,7 @@
           <text x="60" y="-8">R/2</text>
           <text x="135" y="-8">R</text>
           <text x="-85" y="-8">-R/2</text>
-          <text x="-145" y="-8">R</text>
+          <text x="-145" y="-8">-R</text>
           <%--   vertical -s   --%>
           <text x="7" y="-65">R/2</text>
           <text x="7" y="-135">R</text>
@@ -106,6 +105,12 @@
           <text x="7" y="135">-R</text>
 
           <rect x="0" y="0" height="140" width="70" fill-opacity="0.4" fill="blue"></rect>
+          <%--    points     --%>
+          <%if (pointList!=null){
+            ArrayList<PointModel> list = pointList.getPointList();
+            for (PointModel point : list) {%>
+              <circle cx = "<%=point.toDumbAssCoords().get("x")%>" cy="<%=point.toDumbAssCoords().get("y")%>" r="3" fill="red"></circle>
+          <%}}%>
           <%--        <path d="M 0 140 A 70 70 0 0 1 -140 0" fill="blue" fill-opacity="0.4"></path>--%>
           <%--        <path d="M 0 140 C 0 140, 140 0, 140 140" fill="blue" fill-opacity="0.4"></path>--%>
         </svg>

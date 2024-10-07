@@ -1,4 +1,4 @@
-<%@ page import="java.util.Iterator" %>
+
 <%@ page import="com.example.web_2.PointModel" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.web_2.PointList" %>
@@ -26,12 +26,11 @@
             ArrayList<PointModel> list = pointList.getPointList();
                 for (PointModel point : list) { %>
                     <tr>
-                        <td><%=point.getX()%></td>;
-                        <td><%=point.getY()%></td>;
-                        <td><%=point.getR()%></td>;
-                        <td><%=point.getHit()%></td>;
+                        <td><%=point.getX()%></td>
+                        <td><%=point.getY()%></td>
+                        <td><%=point.getR()%></td>
+                        <td><%=point.getHit()%></td>
                     </tr>
-                }
             <%}%>
         </tbody>
     </table>
