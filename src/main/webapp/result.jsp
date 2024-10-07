@@ -12,7 +12,7 @@
     <title>result</title>
 </head>
 <body>
-    <table id = "table">
+    <table id = "table" class ="res">
         <thead>
         <tr>
             <th class="x_th">Coord. x</th>
@@ -21,7 +21,7 @@
             <th id ="hit_th">Hit</th>
         </tr>
         </thead>
-        <tbody id = "table_body">
+        <tbody id = "table_body_res">
             <%  PointList pointList = (PointList) session.getAttribute("pointList");
             ArrayList<PointModel> list = pointList.getPointList();
                 for (PointModel point : list) { %>

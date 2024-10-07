@@ -34,7 +34,17 @@ $(svg).click(async function (evt) {
         console.log(data.x_data, data.y_data);
         var url = "controller?" + new URLSearchParams(data).toString();
         var response = await fetch(url, {method: "get", redirect: "manual"});
+        var new_row = table.insertRow();
+        var xCell = new_row.insertCell(0);
+        var yCell = new_row.insertCell(1);
+        var rCell = new_row.insertCell(2);
+        var hitCell = new_row.insertCell(3);
         window.location.href=response.url;
+        // $.get(response.url, function (){
+        //     const table = $('#table_body_res');
+        //     $('#table_body').remove();
+        //     $('#table').append(table);
+        // });
         // let fd = $('<form>', {action:"controller", method: "get", x_data: tcords.x, y_data: tcords.y, r_data: tcords.r})
         // fd.append("x_data", tcords.x);
         // fd.append("y_data", tcords.y);

@@ -21,7 +21,6 @@ public class AreaCheckServlet extends HttpServlet {
         }catch (ServletException | IOException e){}
     }
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         try {
             var x = Double.parseDouble(request.getParameter("x_data"));
             var y = Double.parseDouble(request.getParameter("y_data"));
@@ -37,6 +36,7 @@ public class AreaCheckServlet extends HttpServlet {
             System.out.println(Arrays.toString(e.getStackTrace()));
             System.out.println(e.getMessage());
             System.out.println(e.getCause());
+            response.sendError(1, "an error has occurred");
         };
         request.getRequestDispatcher("./result.jsp").forward(request, response);
 //        response.sendRedirect("src/main/webapp/result.jsp");
@@ -51,15 +51,15 @@ public class AreaCheckServlet extends HttpServlet {
     public boolean checkCircle(double x, double y, double r){
         return (Math.pow(x, 2) + Math.pow(y,2) < Math.pow(r,2) && x<=0 && y<=0);
     }
-    public JsonObject formAnswer(double x, double y, double r, boolean hit){
-        var g = new Gson();
-        var json = new HashMap<String, Object>();
-        json.put("x", x);
-        json.put("y", y);
-        json.put("r", r);
-        json.put("hit", hit);
-        return g.fromJson(g.toJson(json), JsonObject.class);
-    }
+//    public JsonObject formAnswer(double x, double y, double r, boolean hit){
+//        var g = new Gson();
+//        var json = new HashMap<String, Object>();
+//        json.put("x", x);
+//        json.put("y", y);
+//        json.put("r", r);
+//        json.put("hit", hit);
+//        return g.fromJson(g.toJson(json), JsonObject.class);
+//    }
 //    double calcArea(double x, double y, double r){
 //        Math.abs((x*y + x3*(y1-y2))/2.0)
 //    }

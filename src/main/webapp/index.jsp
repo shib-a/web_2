@@ -51,7 +51,7 @@
   </form>
   <div id = "ti_div">
     <div id = "table_div">
-      <table id = "table">
+      <table id = "table" class = res_table>
         <thead>
         <tr>
           <th class="x_th">Coord. x</th>
