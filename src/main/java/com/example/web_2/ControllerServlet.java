@@ -19,10 +19,11 @@ public class ControllerServlet extends HttpServlet {
     public void handleRequest(HttpServletRequest request, HttpServletResponse response){
         //var params = request.getParameterMap();
         try {
-//            if (request.getParameter("x_data") == null || request.getParameter("y_data") == null || request.getParameter("r_data") == null) {
-//                handleException(new InvalidDataException("invalid data"));
-//            }
-            response.sendRedirect("./areaCheck?");
+            if (request.getParameter("x_data") == null || request.getParameter("y_data") == null || request.getParameter("r_data") == null) {
+                handleException(new InvalidDataException("invalid data"));
+            }
+
+            response.sendRedirect("./areaCheck?"+request.getQueryString());
 //            var dispatcher = request.getRequestDispatcher("AreaCheckServlet");
 //            dispatcher.forward(request, response);
         }catch (RuntimeException | IOException  e){handleException(e);}

@@ -27,9 +27,13 @@ public class AreaCheckServlet extends HttpServlet {
             var y = Double.parseDouble(request.getParameter("y_data"));
             var r = Double.parseDouble(request.getParameter("r_data"));
             var hit = validate(x, y, r);
-            var ans = formAnswer(x, y, r, hit);
+            var point = new PointModel(x,y,r,hit);
+            PointList.getInstance().add(point);
+            request.getSession().setAttribute("pointList", PointList.getInstance());
         } catch (Exception e){
             System.out.println(Arrays.toString(e.getStackTrace()));
+            System.out.println(e.getMessage());
+            System.out.println(e.getCause());
         };
         String ans = null;
         //request.setAttribute("json", ans);

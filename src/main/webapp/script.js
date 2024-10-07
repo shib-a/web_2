@@ -7,20 +7,20 @@ function toPlane(x, y, r){
     let planeX = (x-300)/(300/r);
     let planeY = (y-300)/(300/r);
     console.log(planeX, planeY);
-    return {x: planeX, y: planeY}
+    return {x: planeX.toFixed(5), y: planeY.toFixed(5)}
 }
 $(svg).click(function ( evt){
     let pt = svg.createSVGPoint();
     pt.x = evt.clientX;
     pt.y = evt.clientY;
 
-    if(document.querySelector('input[name="radius"]:checked').value){
-        r_val = document.querySelector('input[name="radius"]:checked').value;
+    if(r_val){
+        //r_val = document.querySelector('input[name="radius"]:checked').value;
         let cursorpt = pt.matrixTransform(svg.getScreenCTM());
         console.log("raw:", cursorpt.x, cursorpt.y, r_val)
         let tcords = toPlane(cursorpt.x, cursorpt.y, r_val);
         let data = {"x_data":tcords.x, "y_data": tcords.y, "r_data": r_val};
-        console.log(tcords.x, tcords.y);
+        console.log(data.x_data, data.y_data);
         //
         // var form = new FormData();
         // form.append("x_data", tcords.x);
@@ -51,10 +51,15 @@ jQuery('button.ch_x').click(function(){
     jQuery(this).addClass('chosen')
     x_val = this.textContent;
     jQuery('button.chosen').css('background','green');
-    jQuery('button.ch_x').css('background','grey');
+    jQuery('button.ch_x').css('background','-moz-buttondefault');
 })
-document.getElementById("r_choice").addEventListener("input", function (){
-    r_val = document.getElementById("r_choice").value;
+jQuery('button.r_change').click(function(){
+    jQuery('button.r_chosen').addClass('r_change').removeClass('r_chosen');
+    jQuery(this).removeClass('r_change');
+    jQuery(this).addClass('r_chosen')
+    r_val = this.textContent;
+    jQuery('button.r_chosen').css('background','green');
+    jQuery('button.r_change').css('background','-moz-buttondefault');
 })
 
 var ch_y_field = document.getElementById("data_ch_y");
