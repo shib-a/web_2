@@ -3,9 +3,6 @@ var y_val;
 var r_val;
 var svg = document.getElementById("svg");
 function toPlane(x, y, r){
-    // let planeX = (x-150)/(300/r);          let planeX = (svgX - 150) / (120 / r);
-    //                                        let planeY = (150 - svgY) / (120 / r);
-    // let planeY = (y-150)/(300/r);
     let planeX = (x)/(140/r);
     let planeY = (y-150)/(140/r);
     console.log(planeX, planeY);
@@ -95,45 +92,16 @@ ch_y_field.addEventListener("input",function (){
     }
 })
 
-$('#submit_button').on('click',  function(e){
+$('#submit_button').on('click',  async function (e) {
     var table = document.getElementById("table");
-    r_val = document.querySelector('input[name="radius"]:checked').value;
+    // r_val = document.querySelector('input[name="radius"]:checked').value;
+    if(!r_val){return;}
     console.log(x_val, y_val, r_val);
     var time = new Date().toLocaleTimeString();
-    var coord_data = {"x_data":x_val, "y_data":y_val, "r_data":r_val}
-    // if(isValidInput) {
-    //     jQuery.ajax({
-    //         url: "controller?"+ $.param(coord_data),
-    //         type: "GET",
-    //         dataType: "json",
-    //         //data: coord_data,
-    //         success: function (response) {
-    //             // var new_row = table.insertRow();
-    //             // var xCell = new_row.insertCell(0);
-    //             // var yCell = new_row.insertCell(1);
-    //             // var rCell = new_row.insertCell(2);
-    //             // var hitCell = new_row.insertCell(3);
-    //             // var timeCell = new_row.insertCell(4);
-    //             // var respTimeCell = new_row.insertCell(5);
-    //             if (response.result) {
-    //                 // xCell.innerHTML = x_val;
-    //                 // yCell.innerHTML = y_val;
-    //                 // rCell.innerHTML = r_val;
-    //                 // hitCell.innerHTML = 'yes';
-    //                 // timeCell.innerHTML= time;
-    //                 // respTimeCell.innerHTML = response.respTime;
-    //                 console.log('yes');
-    //             } else {
-    //                 xCell.innerHTML = x_val;
-    //                 yCell.innerHTML = y_val;
-    //                 rCell.innerHTML = r_val;
-    //                 hitCell.innerHTML = 'no';
-    //                 timeCell.innerHTML= time;
-    //                 respTimeCell.innerHTML = response.respTime;
-    //                 console.log('no');
-    //             }
-    //         },
-    //         error:function(xhr, status, error){alert(error)}
-    //     });
-    // }
+    var coord_data = {"x_data": x_val, "y_data": y_val, "r_data": r_val}
+    let data = {"x_data": x_val, "y_data": y_val, "r_data": r_val, "raw_x": null, "raw_y": null};
+    console.log(data.x_data, data.y_data);
+    var url = "controller?" + new URLSearchParams(data).toString();
+    var response = await fetch(url, {method: "get", redirect: "manual"});
+    window.location.href = response.url;
 });

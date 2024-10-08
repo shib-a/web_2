@@ -26,8 +26,12 @@ public class AreaCheckServlet extends HttpServlet {
             var y = Double.parseDouble(request.getParameter("y_data"));
             var r = Double.parseDouble(request.getParameter("r_data"));
             var hit = validate(x, y, r);
-            var raw_x = Double.parseDouble(request.getParameter("raw_x"));
-            var raw_y = Double.parseDouble(request.getParameter("raw_y"));
+            Double raw_x = null;
+            Double raw_y = null;
+            try {
+                raw_x = Double.parseDouble(request.getParameter("raw_x"));
+                raw_y = Double.parseDouble(request.getParameter("raw_y"));
+            }catch (Exception e){}
             var point = new PointModel(x,y,r,hit, raw_x, raw_y);
             PointList.getInstance().add(point);
             PointList.getInstance().getPointList().forEach(System.out::println);
