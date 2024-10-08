@@ -109,7 +109,7 @@
           <%if (pointList!=null){
             ArrayList<PointModel> list = pointList.getPointList();
             for (PointModel point : list) {%>
-              <circle cx = "<%if(point.getRaw_x()==null){%><%=point.toDumbAssCoords().get("x")%><%} else{%><%=point.getRaw_x()%><%}%>" cy="<%if(point.getRaw_y()==null){%><%=point.toDumbAssCoords().get("y")%><%} else{%><%=point.getRaw_y()%><%}%>" r="5" fill="red"></circle>
+              <circle cx = "<%/*if(point.getRaw_x()==null){*/%><%=point.toDumbAssCoords((Double)session.getAttribute("curr_r")).get("x")%><%/*} else{*/%><%/*}*/%>" cy="<%/*if(point.getRaw_y()==null){*/%><%=point.toDumbAssCoords((Double) session.getAttribute("curr_r")).get("y")%><%/*} else{*/%><%/*}*/%>" r="5" fill="<%if(point.getHit()==false){%><%="red"%><%} else {%><%="green"%><%}%>"></circle>
           <%}}%>
           <%--        <path d="M 0 140 A 70 70 0 0 1 -140 0" fill="blue" fill-opacity="0.4"></path>--%>
           <%--        <path d="M 0 140 C 0 140, 140 0, 140 140" fill="blue" fill-opacity="0.4"></path>--%>

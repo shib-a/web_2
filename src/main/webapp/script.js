@@ -42,7 +42,7 @@ $(svg).click(async function (evt) {
         // fd.append("y_data", tcords.y);
         // fd.append("r_data", tcords.r);
         // fd.appendTo('body').submit()
-    }
+    } else {alert("please select radius")}
 
 
 })
@@ -95,7 +95,7 @@ ch_y_field.addEventListener("input",function (){
 $('#submit_button').on('click',  async function (e) {
     var table = document.getElementById("table");
     // r_val = document.querySelector('input[name="radius"]:checked').value;
-    if(!r_val){return;}
+    if(!r_val){alert("please select radius!"); return;}
     console.log(x_val, y_val, r_val);
     var time = new Date().toLocaleTimeString();
     var coord_data = {"x_data": x_val, "y_data": y_val, "r_data": r_val}

@@ -41,9 +41,9 @@ public class PointModel {
     public boolean getHit(){
         return hit;
     }
-    public HashMap<String, Double> toDumbAssCoords(){
-        var svgX = (x*(140/r));
-        var svgY = -(y)*(140/r);
+    public HashMap<String, Double> toDumbAssCoords(Double curr_rad){
+        var svgX = (x*(140/curr_rad));
+        var svgY = -(y)*(140/curr_rad);
         var hm = new HashMap<String, Double>();
         hm.put("x", svgX);
         hm.put("y",svgY);

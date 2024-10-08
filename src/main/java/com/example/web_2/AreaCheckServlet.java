@@ -35,6 +35,7 @@ public class AreaCheckServlet extends HttpServlet {
             var point = new PointModel(x,y,r,hit, raw_x, raw_y);
             PointList.getInstance().add(point);
             PointList.getInstance().getPointList().forEach(System.out::println);
+            request.getSession().setAttribute("curr_r", r);
             if(request.getSession().getAttribute("pointList")==null){
                 request.getSession().setAttribute("pointList", PointList.getInstance());
             }
