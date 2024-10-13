@@ -62,6 +62,8 @@ jQuery('button.r_change').click(function(){
     r_val = this.textContent;
     jQuery('button.r_chosen').css('background','green');
     jQuery('button.r_change').css('background','-moz-buttondefault');
+    // let data ={"change_r": r_val}
+    // let url =
 })
 
 var ch_y_field = document.getElementById("data_ch_y");
